@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestingWeb | Premium Game Modifications</title>
+    <meta name="description" content="Download premium game mods, cheats, and tools. Safe and regularly updated modifications for popular games.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff4e50;
+            --primary-dark: #e04648;
+            --secondary: #fc913a;
+            --secondary-dark: #e48234;
+            --dark: #222;
+            --darker: #111;
+            --light: #fff;
+            --gray: #555;
+            --light-gray: #888;
+            --lighter-gray: #aaa;
+            --dark-gray: #333;
+            --overlay: rgba(0,0,0,0.7);
+            --success: #4CAF50;
+            --warning: #FFC107;
+            --danger: #F44336;
+            --info: #2196F3;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+            color: var(--light);
+            min-height: 100vh;
+            padding-bottom: 100px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        /* Layout Components */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(252, 145, 58, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(252, 145, 58, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--light);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1.5rem;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 10;
+            text-align: center;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transform: translateX(-100%);
+            animation: shine 4s infinite;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(40, 40, 40, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a:hover {
+            background: rgba(255, 78, 80, 0.7);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(252, 145, 58, 0.4);
+        }
+
+        nav a.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            background: rgba(50, 50, 50, 0.4);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,78,80,0.1) 0%, rgba(0,0,0,0) 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            color: var(--light-gray);
+        }
+
+        /* Search Box */
+        .search-container {
+            position: relative;
+            max-width: 700px;
+            margin: 2rem auto;
+            width: 100%;
+        }
+
+        #searchBox {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            color: var(--light);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #searchBox::placeholder {
+            color: var(--light-gray);
+        }
+
+        #searchBox:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 5px 20px rgba(252, 145, 58, 0.3);
+            background: rgba(0,0,0,0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--light-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-icon:hover {
+            color: var(--secondary);
+        }
+
+        /* Mod Cards */
+        .mods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .mod-card {
+            background: rgba(50, 50, 50, 0.4);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .mod-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: rgba(252, 145, 58, 0.3);
+        }
+
+        .mod-image {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .mod-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+
+        .mod-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .mod-badge.premium {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: var(--dark);
+        }
+
+        .mod-badge.updated {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+        }
+
+        .mod-badge.hot {
+            background: linear-gradient(135deg, #F44336, #FF5722);
+        }
+
+        .mod-content {
+            padding: 1.5rem;
+        }
+
+        .mod-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .mod-description {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .mod-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .mod-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .mod-download {
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .mod-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(252, 145, 58, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+        }
+
+        /* Features Section */
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: rgba(50, 50, 50, 0.4);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-color: rgba(252, 145, 58, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            background: rgba(252, 145, 58, 0.1);
+            width: 80px;
+            height: 80px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--light);
+        }
+
+        .feature-desc {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: rgba(50, 50, 50, 0.4);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+
+        /* Review Section */
+        #reviews {
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(50, 50, 50, 0.4);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 800px;
+        }
+
+        #reviews h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        #reviewBox {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.3);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            resize: none;
+            min-height: 120px;
+            transition: all 0.3s ease;
+        }
+
+        #reviewBox:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(252, 145, 58, 0.3);
+        }
+
+        .review-submit {
+            align-self: flex-end;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .review-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(252, 145, 58, 0.4);
+        }
+
+        #reviewList {
+            margin-top: 2rem;
+        }
+
+        .review-item {
+            background: rgba(30, 30, 30, 0.5);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            border-left: 4px solid var(--secondary);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .review-user {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .review-date {
+            font-size: 0.7rem;
+            color: var(--light-gray);
+            margin-left: auto;
+        }
+
+        .review-text {
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        .review-rating {
+            color: var(--secondary);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .review-rating i {
+            margin-right: 2px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(50, 50, 50, 0.4);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem auto;
+            max-width: 800px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--light-gray);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .contact-item i {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .contact-item a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(20, 20, 20, 0.95);
+            padding: 3rem 1rem;
+            width: 100%;
+            margin-top: 4rem;
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Floating Buttons */
+        .floating-btns {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 99;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(252, 145, 58, 0.5);
+        }
+
+        .floating-btn .tooltip {
+            position: absolute;
+            right: 70px;
+            background: rgba(0,0,0,0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn:hover .tooltip {
+            opacity: 1;
+            right: 80px;
+        }
+
+        /* Telegram Button */
+        .telegram-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: #0088cc;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 99;
+            transition: all 0.3s ease;
+        }
+        
+        .telegram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5);
+            background: #0077b3;
+        }
+        
+        .telegram-btn i {
+            font-size: 1.5rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--overlay);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+            padding: 2.5rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            background: var(--danger);
+        }
+
+        .modal h2 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .modal p {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(252, 145, 58, 0.4);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 1rem auto;
+            border: 4px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--secondary);
+            animation: spin 1s linear infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes shine {
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                gap: 0.5rem;
+                padding: 0.8rem;
+            }
+            
+            nav a {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .mods-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            #reviews {
+                padding: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .floating-btns {
+                bottom: 1rem;
+                right: 1rem;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .telegram-btn {
+                bottom: 1rem;
+                left: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+        
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Telegram Modal -->
+    <div id="telegramModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal()">×</div>
+            <h2><i class="fab fa-telegram"></i> Join Our Telegram Channel</h2>
+            <p>Get the latest updates, mod releases, and exclusive content by joining our Telegram channel!</p>
+            <a href="https://t.me/darkstaff69" class="modal-btn" target="_blank">
+                <i class="fab fa-telegram"></i> Join Now
+            </a>
+        </div>
+    </div>
+
+    <header>
+        TestingWeb
+    </header>
+
+    <nav>
+        <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="#mods"><i class="fas fa-download"></i> Mods</a>
+        <a href="#tutorials"><i class="fas fa-video"></i> Tutorials</a>
+        <a href="#community"><i class="fas fa-users"></i> Community</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+
+    <!-- Telegram Button -->
+    <a href="https://t.me/darkstaff69" class="telegram-btn" target="_blank">
+        <i class="fab fa-telegram"></i>
+        Join Telegram
+    </a>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Premium Game Modifications</h1>
+            <p>Download the best mods, cheats, and tools for your favorite games. All our modifications are regularly updated and completely safe to use.</p>
+            <div class="search-container">
+                <input type="text" id="searchBox" placeholder="Search for mods, games, tutorials...">
+                <i class="fas fa-search search-icon" onclick="searchMods()"></i>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Safe & Secure</h3>
+                <p class="feature-desc">All our mods are thoroughly tested for viruses and malware to ensure your safety. We prioritize your security above all else.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3 class="feature-title">Regular Updates</h3>
+                <p class="feature-desc">We update our mods frequently to ensure compatibility with the latest game versions and to add new features.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3 class="feature-title">24/7 Support</h3>
+                <p class="feature-desc">Our dedicated support team is always ready to help you with any issues or questions you might have.</p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Premium Mods</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Supported Games</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+        </section>
+
+        <!-- Popular Mods Section -->
+        <section id="mods" class="section">
+    <h2 class="section-title"><i class="fas fa-fire"></i> Popular Mods</h2>
+    <div class="mods-grid">
+  <!-- Mod Adding Code Yaha Pe paste krna  -->
+
+        <div class="mod-card">
+            <div class="mod-image" style="background-image: url('https://i.ibb.co/9XXHnJm/free-fire-redeem-code-today-2023.png')"></div>
+            <div class="mod-content">
+                <h3 class="mod-title">Redeem Code</h3>
+                <div class="mod-meta">
+                    <span><i class="far fa-calendar-alt"></i> 1 weeks ago</span>
+                    <span><i class="fas fa-download"></i> 3.8K</span>
+                </div>
+                <p class="mod-description">Become invincible with this god mode hack. Works in all game modes and levels with no detection.</p>
+                <a href="https://t.me/Key_Is_Here_My_Baby" class="mod-download" target="_blank">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+<!-- Mod Adding Code iske Niche  paste krna  -->
+
+
+        </div>
+    </div>
+</section>
+
+        <!-- Tutorials Section -->
+        <section id="tutorials" class="section">
+            <h2 class="section-title"><i class="fas fa-video"></i> Video Tutorials</h2>
+            <div class="mods-grid">
+                <div class="mod-card">
+                    <div class="mod-image" style="background-image: url('https://via.placeholder.com/400x200?text=Tutorial+1')"></div>
+                    <div class="mod-content">
+                        <h3 class="mod-title">Installation Guide</h3>
+                        <div class="mod-meta">
+                            <span><i class="far fa-calendar-alt"></i> 1 week ago</span>
+                            <span><i class="fas fa-eye"></i> 5.2K</span>
+                        </div>
+                        <p class="mod-description">Learn how to properly install and configure our mods for optimal performance and security on your device.</p>
+                        <a href="#" class="mod-download" onclick="watchTutorial('Installation Guide')"><i class="fas fa-play"></i> Watch</a>
+                    </div>
+                </div>
+                
+                <div class="mod-card">
+                    <div class="mod-image" style="background-image: url('https://via.placeholder.com/400x200?text=Tutorial+2')"></div>
+                    <div class="mod-content">
+                        <h3 class="mod-title">Advanced Features</h3>
+                        <div class="mod-meta">
+                            <span><i class="far fa-calendar-alt"></i> 2 weeks ago</span>
+                            <span><i class="fas fa-eye"></i> 3.7K</span>
+                        </div>
+                        <p class="mod-description">Discover all the hidden features and advanced settings of our premium mods to enhance your gameplay.</p>
+                        <a href="#" class="mod-download" onclick="watchTutorial('Advanced Features')"><i class="fas fa-play"></i> Watch</a>
+                    </div>
+                </div>
+                
+                <div class="mod-card">
+                    <div class="mod-image" style="background-image: url('https://via.placeholder.com/400x200?text=Tutorial+3')"></div>
+                    <div class="mod-content">
+                        <h3 class="mod-title">Troubleshooting</h3>
+                        <div class="mod-meta">
+                            <span><i class="far fa-calendar-alt"></i> 3 days ago</span>
+                            <span><i class="fas fa-eye"></i> 1.9K</span>
+                        </div>
+                        <p class="mod-description">Fix common issues and errors with our comprehensive troubleshooting guide for all supported mods.</p>
+                        <a href="#" class="mod-download" onclick="watchTutorial('Troubleshooting')"><i class="fas fa-play"></i> Watch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="section">
+            <h2 class="section-title"><i class="fas fa-star"></i> User Reviews</h2>
+            <div class="review-form">
+                <textarea id="reviewBox" placeholder="Share your experience with our mods..."></textarea>
+                <button class="review-submit" onclick="submitReview()">
+                    <i class="fas fa-paper-plane"></i> Submit Review
+                </button>
+            </div>
+            <div id="reviewList">
+                <div class="review-item">
+                    <div class="review-user">
+                        <div class="user-avatar">JD</div>
+                        <div class="user-name">John Doe</div>
+                        <div class="review-date">2 days ago</div>
+                    </div>
+                    <div class="review-text">
+                        These mods are amazing! The unlimited resources hack worked perfectly and the installation was super easy with the video tutorial. Customer support helped me when I had questions.
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-user">
+                        <div class="user-avatar">AS</div>
+                        <div class="user-name">Alice Smith</div>
+                        <div class="review-date">1 week ago</div>
+                    </div>
+                    <div class="review-text">
+                        I was skeptical at first but these mods are legit. The VIP menu gives me so many options to customize my gameplay. The auto-update feature is very convenient.
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-user">
+                        <div class="user-avatar">MK</div>
+                        <div class="user-name">Mike Johnson</div>
+                        <div class="review-date">3 days ago</div>
+                    </div>
+                    <div class="review-text">
+                        The speed hack has completely changed how I play. I can grind so much faster now. The developers are active in the Telegram group and very responsive.
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="contact-section">
+                <h2 class="section-title"><i class="fas fa-envelope"></i> Contact Us</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:support@testingweb.com">support@testingweb.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-telegram"></i>
+                        <a href="https://t.me/darkstaff69" target="_blank">@TestingWebSupport</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://testingweb.com" target="_blank">www.testingweb.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>TestingWeb</h3>
+                <p style="color: var(--light-gray);">Premium game modifications and tools for passionate gamers. Safe, reliable, and regularly updated.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#mods">Mods</a></li>
+                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">DMCA</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 TestingWeb. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-btns">
+        <div class="floating-btn" onclick="openModal()">
+            <i class="fab fa-telegram"></i>
+            <span class="tooltip">Join Telegram</span>
+        </div>
+        <div class="floating-btn" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i>
+            <span class="tooltip">Back to Top</span>
+        </div>
+    </div>
+
+    <script>
+        // Modern JavaScript with better organization and functionality
+        
+        // DOM Elements
+        const telegramModal = document.getElementById('telegramModal');
+        const searchBox = document.getElementById('searchBox');
+        const reviewBox = document.getElementById('reviewBox');
+        const reviewList = document.getElementById('reviewList');
+        
+        // Application State
+        const state = {
+            reviews: [
+                {
+                    id: 1,
+                    user: 'John Doe',
+                    initials: 'JD',
+                    text: 'These mods are amazing! The unlimited resources hack worked perfectly and the installation was super easy with the video tutorial. Customer support helped me when I had questions.',
+                    rating: 5,
+                    date: '2 days ago'
+                },
+                {
+                    id: 2,
+                    user: 'Alice Smith',
+                    initials: 'AS',
+                    text: 'I was skeptical at first but these mods are legit. The VIP menu gives me so many options to customize my gameplay. The auto-update feature is very convenient.',
+                    rating: 4,
+                    date: '1 week ago'
+                },
+                {
+                    id: 3,
+                    user: 'Mike Johnson',
+                    initials: 'MK',
+                    text: 'The speed hack has completely changed how I play. I can grind so much faster now. The developers are active in the Telegram group and very responsive.',
+                    rating: 4.5,
+                    date: '3 days ago'
+                }
+            ],
+            mods: [
+                // This would be populated from an API in a real application
+            ]
+        };
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            renderReviews();
+            
+            // Make search work on Enter key
+            searchBox.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchMods();
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav link
+                        document.querySelectorAll('nav a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Function to handle mod downloads
+        function downloadMod(modName) {
+            event.preventDefault();
+            
+            // Show loading state
+            const downloadBtn = event.target;
+            const originalText = downloadBtn.innerHTML;
+            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing...';
+            downloadBtn.style.opacity = '0.7';
+            downloadBtn.style.cursor = 'not-allowed';
+            
+            // Simulate processing delay
+            setTimeout(() => {
+                // Show confirmation
+                alert(`Downloading: ${modName}\nYou will be redirected to the download page.`);
+                
+                // Redirect to external URL
+                window.location.href = "https://example.com/download?mod=" + encodeURIComponent(modName);
+                
+                // Reset button (in case redirect is blocked)
+                setTimeout(() => {
+                    downloadBtn.innerHTML = originalText;
+                    downloadBtn.style.opacity = '1';
+                    downloadBtn.style.cursor = 'pointer';
+                }, 3000);
+            }, 1500);
+        }
+        
+        // Function to handle tutorial viewing
+        function watchTutorial(tutorialName) {
+            event.preventDefault();
+            
+            // In a real app, this would open a video player or redirect
+            alert(`Loading tutorial: ${tutorialName}\nThis would open the video player in a real application.`);
+        }
+        
+        // Modal functions
+        function openModal() {
+            telegramModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            telegramModal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === telegramModal) {
+                closeModal();
+            }
+        });
+        
+        // Search function
+        function searchMods() {
+            const query = searchBox.value.trim();
+            if (query) {
+                // In a real app, this would filter mods or call an API
+                alert(`Searching for: ${query}\nThis would show search results in a real application.`);
+            } else {
+                alert('Please enter a search term');
+                searchBox.focus();
+            }
+        }
+        
+        // Submit review function
+        function submitReview() {
+            const reviewText = reviewBox.value.trim();
+            if (reviewText) {
+                // Create new review
+                const newReview = {
+                    id: Date.now(),
+                    user: 'You',
+                    initials: 'YO',
+                    text: reviewText,
+                    rating: 5, // Default rating
+                    date: 'Just now'
+                };
+                
+                // Add to state
+                state.reviews.unshift(newReview);
+                
+                // Render reviews
+                renderReviews();
+                
+                // Clear and show confirmation
+                reviewBox.value = '';
+                alert('Thank you for your review!');
+            } else {
+                alert('Please write your review before submitting');
+                reviewBox.focus();
+            }
+        }
+        
+        // Render reviews
+        function renderReviews() {
+            reviewList.innerHTML = '';
+            
+            state.reviews.forEach(review => {
+                const reviewItem = document.createElement('div');
+                reviewItem.className = 'review-item';
+                reviewItem.innerHTML = `
+                    <div class="review-user">
+                        <div class="user-avatar">${review.initials}</div>
+                        <div class="user-name">${review.user}</div>
+                        <div class="review-date">${review.date}</div>
+                    </div>
+                    <div class="review-text">
+                        ${review.text}
+                    </div>
+                    <div class="review-rating">
+                        ${renderStars(review.rating)}
+                    </div>
+                `;
+                reviewList.appendChild(reviewItem);
+            });
+        }
+        
+        // Helper function to render star ratings
+        function renderStars(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 1; i <= 5; i++) {
+                if (i <= fullStars) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else if (i === fullStars + 1 && hasHalfStar) {
+                    stars += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            return stars;
+        }
+        
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show scroll-to-top button when scrolling down
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.floating-btn:nth-child(2)');
+            if (window.scrollY > 300) {
+                scrollBtn.style.display = 'flex';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
